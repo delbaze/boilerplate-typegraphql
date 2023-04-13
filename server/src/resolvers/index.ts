@@ -7,4 +7,4 @@ const resolversArray = loadFilesSync(path.join(__dirname, "."), {
   recursive: true,
 });
 
-export default mergeResolvers(resolversArray);
+export default resolversArray;

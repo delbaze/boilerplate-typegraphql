@@ -1,11 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Field, ObjectType } from "type-graphql";
 
+@ObjectType()
 @Entity()
 export default class Book {
-    @PrimaryGeneratedColumn("uuid")
-    id: string
+  @Field()
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-    @Column()
-    title: string
-
+  @Field()
+  @Column()
+  title: string;
 }

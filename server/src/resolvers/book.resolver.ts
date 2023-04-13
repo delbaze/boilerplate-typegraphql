@@ -1,16 +1,16 @@
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import BookService from "../services/book.service";
-import { IAddBook } from "./book";
+import Book from "../entities/book.entity";
 
-export default {
-  Query: {
-    books: async () => {
-      return await new BookService().listBooks();
-    }
-  },
+@Resolver()
+export default class BookResolver {
+  @Query(() => [Book])
+  async books() {
+    return await new BookService().listBooks();
+  }
 
-  Mutation: {
-    addBook: async (_: any, { title }: IAddBook) => {
-      return await new BookService().addBook({ title });
-    },
-  },
-};
+  @Mutation(() => Book)
+  async addBook(@Arg("title") title: string) {
+    return await new BookService().addBook({ title });
+  }
+}

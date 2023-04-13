@@ -16,6 +16,11 @@ function DemoMutation() {
     setTitle(e.target.value);
   };
   const addBook = () => {
+    console.log({
+      variables: {
+        title,
+      },
+    });
     addBookInDb({
       variables: {
         title,

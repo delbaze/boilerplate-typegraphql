@@ -9,6 +9,7 @@ import 'reflect-metadata';
 async function main() {
   const schema = await buildSchema({
     resolvers: [BookResolver],
+    validate: false
   });
   const server = new ApolloServer({
     schema,

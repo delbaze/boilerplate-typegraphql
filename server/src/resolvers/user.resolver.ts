@@ -10,7 +10,7 @@ import { ApolloServerErrorCode } from "@apollo/server/errors";
 import { hash, verify } from "argon2";
 import * as jwt from "jsonwebtoken";
 @Resolver()
-export default class BookResolver {
+export default class UserResolver {
   @Query(() => [User])
   async users() {
     return await new UserService().listUsers();
